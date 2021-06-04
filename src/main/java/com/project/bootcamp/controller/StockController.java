@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,6 +42,11 @@ public class StockController {
     @DeleteMapping("/{id}")
     public ResponseEntity<StockDTO> delete(@PathVariable("id") Long id){
         return ResponseEntity.ok(stockService.delete(id));
+    }
+
+    @GetMapping("/today")
+    public ResponseEntity<List<StockDTO>> findByToday(){
+        return ResponseEntity.ok(stockService.findByToday());
     }
 
 

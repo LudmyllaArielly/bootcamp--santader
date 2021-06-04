@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,5 +62,11 @@ public class StockService {
         StockDTO dto = this.findById(id);
         stockRepository.deleteById(dto.getId());
         return dto;
+    }
+
+    @Transactional(readOnly = true)
+    public List<StockDTO> findByToday() {
+        return stockRepository.findByToday(LocalDate.now()).map(stockMapper::toDto)
+                .orElseThrow(NotFoundException::new);
     }
 }
