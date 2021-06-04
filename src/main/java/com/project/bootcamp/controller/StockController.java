@@ -38,14 +38,7 @@ public class StockController {
 
     @GetMapping("/{id}")
     public ResponseEntity<StockDTO> findById(@PathVariable("id") Long id) {
-        List<StockDTO> list = new ArrayList<>();
-        StockDTO dto1 = new StockDTO(1L, "Magazine", 100.0, LocalDate.now(), 10.0);
-        StockDTO dto2 = new StockDTO(2L, "Nubank", 150.0, LocalDate.now(), 15.0);
-        list.add(dto1);
-        list.add(dto2);
-        StockDTO selection =  list.stream().filter(x -> x.getId().compareTo(id) == 0)
-                .findFirst().get();
-        return ResponseEntity.ok(selection);
+        return ResponseEntity.ok(stockService.findById(id));
     }
 
 }

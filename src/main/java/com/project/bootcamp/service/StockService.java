@@ -2,6 +2,7 @@ package com.project.bootcamp.service;
 
 import com.project.bootcamp.Util.MessageUtils;
 import com.project.bootcamp.exceptions.BusinessException;
+import com.project.bootcamp.exceptions.NotFoundException;
 import com.project.bootcamp.mapper.StockMapper;
 import com.project.bootcamp.model.dto.StockDTO;
 import com.project.bootcamp.model.entities.Stock;
@@ -47,5 +48,11 @@ public class StockService {
     @Transactional(readOnly = true)
     public List<StockDTO> findAll() {
         return stockMapper.toDto(stockRepository.findAll());
+    }
+
+    @Transactional(readOnly = true)
+    public StockDTO findById(Long id) {
+        return stockRepository.findById(id)
+                .map(stockMapper:: toDto).orElseThrow(NotFoundException::new);
     }
 }
