@@ -19,6 +19,7 @@ public class StockController {
 
     @Autowired
     private StockService stockService;
+    private StockService st;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<StockDTO> save(@Valid @RequestBody StockDTO stockDTO) {
@@ -30,12 +31,9 @@ public class StockController {
         return ResponseEntity.ok(stockService.update(stockDTO));
     }
 
-    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping
     public ResponseEntity<List<StockDTO>> findAll() {
-        List<StockDTO> list = new ArrayList<>();
-        StockDTO dto = new StockDTO(1L, "Magazine", 100.0, LocalDate.now(), 10.0);
-        list.add(dto);
-        return ResponseEntity.ok(list);
+        return ResponseEntity.ok(stockService.findAll());
     }
 
     @GetMapping("/{id}")

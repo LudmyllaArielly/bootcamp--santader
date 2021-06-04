@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,5 +42,10 @@ public class StockService {
         Stock stock = stockMapper.toEntity(stockDTO);
         stockRepository.save(stock);
         return stockMapper.toDto(stock);
+    }
+
+    @Transactional(readOnly = true)
+    public List<StockDTO> findAll() {
+        return stockMapper.toDto(stockRepository.findAll());
     }
 }
