@@ -41,4 +41,10 @@ public class StockController {
         return ResponseEntity.ok(stockService.findById(id));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<StockDTO> delete(@PathVariable("id") Long id){
+        return ResponseEntity.ok(stockService.delete(id));
+    }
+
+
 }
