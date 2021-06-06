@@ -4,12 +4,16 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 
 
 
+
 @NgModule({
   declarations: [
     DashboardPageComponent
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [
+    DashboardPageComponent,
+  ],
 })
 export class DashboardModule { }
