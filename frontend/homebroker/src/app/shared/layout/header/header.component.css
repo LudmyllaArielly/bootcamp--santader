@@ -2,4 +2,15 @@
     width: 100%;
     padding: 1rem 1.5rem;
     background-color:var(--primary-color);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: color;
+    
+}
+@media screen and (max-width: 768px)  {
+    .header {
+        justify-content: center;
+    }
 }
