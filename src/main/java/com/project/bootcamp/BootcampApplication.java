@@ -18,10 +18,10 @@ public class BootcampApplication {
 	}
 
 	@Bean
-	public OpenAPI customOpenApi(@Value("${application.description}") String description) {
+	public OpenAPI customOpenApi() {
 		return new OpenAPI()
-				.info(new Info().title("").version("1.0")
-				.title(description).termsOfService("http://swagger.io/terms")
+				.info(new Info().version("1.0")
+				.termsOfService("http://swagger.io/terms")
 						.license(
 						new License().name("Apache 2.0").url("http://springdoc.org")));
 	}
