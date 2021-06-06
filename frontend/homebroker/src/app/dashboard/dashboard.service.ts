@@ -11,8 +11,8 @@ export class DashboardService {
 
   constructor(private http: HttpClient) { }
 
-  async getStock(): Promise<Stock[]>{
-    return this.http.get<Stock[]>(`${this.baseUrl}/stock`).toPromise();
+  async getStocks(): Promise<Stock[]>{
+    return this.http.get<Stock[]>(`${this.baseUrl}/stocks`).toPromise();
    
   }
     

@@ -12,6 +12,10 @@
     justify-content:space-between;
 }
 
+.negative-variation {
+    border-left-color: var(--negative-variation);
+}
+
 .stock-info {
     width: 100%;
     display: flex;

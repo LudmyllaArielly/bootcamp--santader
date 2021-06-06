@@ -1,10 +1,10 @@
-<div class="stock-card-container">
+<div class="stock-card-container" [class.negative-variation]="stock.variation < 0">
     <div class="stock-info">
-        <h2>SANB11</h2>
-        <p>06/06/2021 11:25:29</p>
+        <h2>{{stock.name}}</h2>
+        <p>{{stock.date | date: 'dd/MM/yyyy' }}</p>
     </div>
     <div class="stock-value">
-        <span class="value">R$ 38,98</span>
-        <span class="variation">+ 0,37%</span>
+        <span class="value">{{stock.price | currency: 'BRL'}}</span>
+        <span class="variation">{{stock.variation}}%</span>
     </div>
 </div>
