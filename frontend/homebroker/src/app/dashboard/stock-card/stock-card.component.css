@@ -10,9 +10,16 @@
     display: flex;
     flex-direction: column;
     justify-content:space-between;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, .1) ;
 }
 
-.negative-variation {
+.stock-card-container:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.28), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.negative-variation-border {
     border-left-color: var(--negative-variation);
 }
 
@@ -61,4 +68,8 @@
     border-radius: 0.25rem;
     align-self: flex-end;
     margin-top: 0.25rem;
+}
+
+.stock-value .negative-variation {
+    background-color: var(--negative-variation);
 }
