@@ -5,6 +5,7 @@
     --primary-color: #EA1D25;
     --secondary-color:#FFFFFF;
     --text-color: #5C6369;
+    --text-color-light: rgba(92,99,105,0.45);
     --positive-variation:#87D883;
     --negative-variation: #F55A5F;
 }
